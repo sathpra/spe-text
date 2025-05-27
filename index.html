@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1e1e1e">
+<link rel="icon" href="icon-192.png">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
 <head>
   <meta charset="UTF-8" />
   <title>SPEText – SATHPra’s Portable Editor for Text</title>
@@ -12,6 +21,7 @@
       --toolbar: #f0f0f0;
       --border: #ccc;
     }
+
     [data-theme="dark"] {
       --bg: #1e1e1e;
       --fg: #ffffff;
@@ -19,7 +29,8 @@
       --border: #555;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -38,7 +49,9 @@
       gap: 8px;
     }
 
-    .toolbar button, .toolbar select, .toolbar input[type="text"] {
+    .toolbar button,
+    .toolbar select,
+    .toolbar input[type="text"] {
       font-size: 16px;
       padding: 6px 10px;
       border-radius: 4px;
@@ -103,7 +116,7 @@
       max-width: 90%;
       z-index: 999;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     .modal h2 {
@@ -115,13 +128,15 @@
     }
   </style>
 </head>
+
 <body data-theme="light">
 
   <div class="toolbar">
     <strong>SPEText</strong>
     <button title="New" onclick="newFile()"><i class="fas fa-file"></i></button>
     <input type="file" id="fileInput" onchange="openFile(event)" style="display:none;" />
-    <button title="Open File" onclick="document.getElementById('fileInput').click()"><i class="fas fa-folder-open"></i></button>
+    <button title="Open File" onclick="document.getElementById('fileInput').click()"><i
+        class="fas fa-folder-open"></i></button>
     <button title="Save" onclick="saveFile()"><i class="fas fa-save"></i></button>
     <button title="Save As" onclick="saveAsFile()"><i class="fas fa-file-export"></i></button>
     <button title="Toggle Wrap" onclick="toggleWrap()"><i class="fas fa-sync-alt"></i></button>
@@ -153,11 +168,18 @@
 
   <div id="aboutModal" class="modal">
     <h2>About SPEText v1.0.0</h2>
-    <p><strong>SPEText</strong> (SATHPra’s Portable Editor for Text) is a modern, web-based text editor designed for simplicity and efficiency. It works seamlessly on all modern browsers and devices.</p>
-    <p>It supports essential text editing features such as cut, copy, paste, find and replace, line numbering, word count, dark/light mode, and file handling — all without needing any installation.</p>
-    <p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</p>
-    <p>This program is distributed in the hope that it will be useful, but <strong>WITHOUT ANY WARRANTY</strong>; without even the implied warranty of <strong>MERCHANTABILITY</strong> or <strong>FITNESS FOR A PARTICULAR PURPOSE</strong>. See the GNU General Public License for more details.</p>
-    <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/" target="_blank">https://www.gnu.org/licenses/</a>.</p>
+    <p><strong>SPEText</strong> (SATHPra’s Portable Editor for Text) is a modern, web-based text editor designed for
+      simplicity and efficiency. It works seamlessly on all modern browsers and devices.</p>
+    <p>It supports essential text editing features such as cut, copy, paste, find and replace, line numbering, word
+      count, dark/light mode, and file handling — all without needing any installation.</p>
+    <p>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public
+      License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any
+      later version.</p>
+    <p>This program is distributed in the hope that it will be useful, but <strong>WITHOUT ANY WARRANTY</strong>;
+      without even the implied warranty of <strong>MERCHANTABILITY</strong> or <strong>FITNESS FOR A PARTICULAR
+        PURPOSE</strong>. See the GNU General Public License for more details.</p>
+    <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a
+        href="https://www.gnu.org/licenses/" target="_blank">https://www.gnu.org/licenses/</a>.</p>
     <button onclick="toggleAbout()">Close</button>
   </div>
 
@@ -274,4 +296,5 @@
   </script>
 
 </body>
+
 </html>
