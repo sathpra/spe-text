@@ -22,7 +22,7 @@
 To use SPEText:
 
 1. **Open the app**  
-   - If hosted: Visit `https://<your-username>.github.io/spe-text/`
+   - If hosted: Visit `https://sathpra.github.io/spe-text/`
    - Or open `index.html` locally in a modern web browser
 
 2. **Install as a PWA (optional)**  
